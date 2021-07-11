@@ -236,7 +236,7 @@ bool WebVideoServer::handle_stream_viewer(const async_web_server_cpp::HttpReques
     }
 
     async_web_server_cpp::HttpReply::builder(async_web_server_cpp::HttpReply::ok).header("Connection", "close").header(
-        "Server", "web_video_server").header("Content-type", "text/html;").write(connection);
+        "Server", "web_video_server").header("Content-type", "text/html;").header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,HEAD,OPTIONS").write(connection);
 
     std::stringstream ss;
     ss << "<html><head><title>" << topic << "</title></head><body>";
